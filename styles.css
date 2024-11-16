@@ -1,0 +1,132 @@
+/* Configuración general */
+*/* Asegúrate de incluir la clase shiny-text en tu CSS */
+/* Estilo para el texto con brillo negro */
+.shiny-text {
+    color: black; /* Cambiar el color a negro */
+    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; /* Sombra de texto para un efecto de brillo suave */
+    font-weight: bold;
+    font-size: 70px; /* Mantener el tamaño grande */
+    animation: shimmer 1.5s infinite; /* Animación de brillo */
+}
+
+/* Animación de brillo */
+@keyframes shimmer {
+    0% { text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; }
+    50% { text-shadow: 0 0 10px #333, 0 0 20px #333, 0 0 30px #333; } /* Resplandor más fuerte */
+    100% { text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; }
+}
+
+
+/* Estilos generales de la página */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(291deg, #EBC387 0%, #EBCD87 64%, #EBB487 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Barra superior */
+.header-bar {
+    width: 100%;
+    max-width: 1440px;
+    height: 81px;
+    background: #F0DC87;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-left, .header-right {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Contenido promocional */
+.promo-container {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1440px;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.promo-image {
+    width: 60%;
+    max-width: 845px;
+    height: auto;
+}
+
+.promo-text {
+    width: 40%;
+    max-width: 420px;
+    color: black;
+}
+
+.promo-text h2 {
+    font-size: 44px;
+    font-weight: 400;
+}
+
+.promo-text h1 {
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.promo-text p {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+/* Botón de compra */
+.buy-button {
+    background: #533130;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.buy-button:hover {
+    background: #6e3f3f;
+}
+
+/* Lema */
+.slogan {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: #0a0808;
+    text-align: center;
+    margin-top: 150px;
+    padding-bottom: 150px;
+    line-height: 1.2; /* Esto ayudará a que el texto se separe un poco si es necesario */
+}

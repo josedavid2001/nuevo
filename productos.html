@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Barra superior */
+        .top-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0dc87;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .logo-container img {
+            width: 40px;
+            height: auto;
+        }
+
+        .slogan {
+            font-size: 24px;
+            font-weight: bold;
+            color: #533130;
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Título de la página */
+        .page-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #533130;
+            margin-top: 30px;
+        }
+
+        /* Contenedor de productos */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 250px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #533130;
+            margin-top: 15px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .product-card .price {
+            font-size: 20px;
+            color: #533130;
+            margin-top: 15px;
+        }
+
+        .buy-button {
+            padding: 10px 20px;
+            background-color: #533130;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .buy-button:hover {
+            background-color: #3e2c28;
+        }
+
+        /* Barra inferior de descuento */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #533130;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior con logo, eslogan centrado y carrito -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="images/g (1).png" alt="Logo de la marca">
+        </div>
+        <h1 class="slogan">“Resalta tu esencia, brilla con confianza”</h1>
+        <!-- Icono del carrito -->
+<div class="cart-icon">
+    <a href="carrito.html">
+        <img src="images/image-removebg-preview (9).png" alt="Carrito">
+    </a>
+</div>
+
+    </div>
+
+    <!-- Contenedor principal de productos -->
+    <div class="main-container">
+        <h1 class="page-title">Nuestros Productos</h1>
+        <div class="products-container">
+            <!-- Producto 1 -->
+            <div class="product-card" data-product-id="1" data-product-name="Paleta de Sombras Nudex" data-product-price="19900">
+                <img src="images/Caratula_Coleccion_Beauty_Creations_-_Cejas-2.webp" alt="Paleta de Sombras Nudex">
+                <h3>Paleta de Sombras Nudex</h3>
+                <div class="price">$19,900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card" data-product-id="2" data-product-name="Delineador con glitter Glitterally Perfect" data-product-price="15900">
+                <img src="images/image_b903173d-00ef-448d-844c-d8ae310f56f8.webp" alt="Delineador con glitter Glitterally Perfect">
+                <h3>Delineador con glitter Glitterally Perfect</h3>
+                <div class="price">$15,900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card" data-product-id="3" data-product-name="Paleta de Rostro Corpse Bride 'Why So Blue'" data-product-price="23900">
+                <img src="images/image_cc4216c0-4fe0-4be0-9e74-09aae098b725.webp" alt="Paleta de Rostro Corpse Bride 'Why So Blue'">
+                <h3>Paleta de Rostro Corpse Bride "Why So Blue"</h3>
+                <div class="price">$23,900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+
+            <!-- Más productos... -->
+              <!-- Producto 2 -->
+              <div class="product-card" data-product-id="4" data-product-name="Balsamo de Labios My Little Pony Pony Dreams" data-product-price="35900">
+                <img src="images/segundo/AccesorioEsponjasMyLittlePony-6.webp" alt="Producto 2">
+                <h3>Balsamo de Labios My Little Pony Pony Dreams</h3>
+                
+                <div class="price">$35.900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+             <!-- Producto 2 -->
+             <div class="product-card" data-product-id="5" data-product-name="Balsamo Labial Balm n Cute" data-product-price="17900">
+                <img src="images/segundo/Balsamo_Labial_Balm_n_Cute-2.webp" alt="Producto 2">
+                <h3>Balsamo Labial Balm n Cute</h3>
+                
+                <div class="price">$17.900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+             <!-- Producto 2 -->
+             <div class="product-card" data-product-id="4" data-product-name="Brillo de labios Lip Oil" data-product-price="15000">
+                <img src="images/segundo/image_77180971-59c1-4ed1-8afc-a2863031b873.webp" alt="Producto 2">
+                <h3>Brillo de labios Lip Oil</h3>
+                
+                <div class="price">$15.000</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+             <!-- Producto 2 -->
+             <div class="product-card" data-product-id="4" data-product-name="Fijador de Maquillaje Flawless Setting Spray" data-product-price="18000">
+                <img src="images/segundo/BC-11_21-Styled-16_2048x_jpg.webp" alt="Producto 2">
+                <h3>Fijador de Maquillaje Flawless Setting Spray</h3>
+                
+                <div class="price">$18.000</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+             <!-- Producto 2 -->
+             <div class="product-card" data-product-id="4" data-product-name="Fijador de Maquillaje Tropical" data-product-price="44900">
+                <img src="images/segundo/tropical-setting-spray-beauty-creations-spn07-253341_1080x_jpg.webp" alt="Producto 2">
+                <h3>Fijador de Maquillaje Tropical</h3>
+                
+                <div class="price">$44.900</div>
+                <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra inferior de descuento -->
+    <div class="bottom-bar">
+        Descuento del 15% en todos los productos
+    </div>
+
+    <script>
+        function agregarAlCarrito(button) {
+            const productCard = button.parentElement;
+            const productId = productCard.getAttribute("data-product-id");
+            const productName = productCard.getAttribute("data-product-name");
+            const productPrice = productCard.getAttribute("data-product-price");
+
+            // Crear un objeto de producto
+            const product = {
+                id: productId,
+                name: productName,
+                price: parseFloat(productPrice)
+            };
+
+            // Obtener el carrito actual del localStorage o crear uno nuevo
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            // Añadir el producto al carrito
+            carrito.push(product);
+
+            // Guardar el carrito actualizado en el localStorage
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
+            alert(`Producto agregado: ${productName}`);
+        }
+    </script>
+</body>
+</html>

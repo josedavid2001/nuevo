@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #533130;
+            margin-top: 30px;
+        }
+
+        /* Tabla de carrito */
+        .cart-table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background-color: #533130;
+            color: white;
+        }
+
+        .cart-total {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #533130;
+        }
+
+        .empty-cart {
+            font-size: 20px;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        .checkout-button {
+            padding: 10px 20px;
+            background-color: #533130;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .checkout-button:hover {
+            background-color: #3e2c28;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="page-title">Carrito de Compras</h1>
+        
+        <table class="cart-table" id="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Los productos se agregarán aquí -->
+            </tbody>
+        </table>
+
+        <p id="cart-total" class="cart-total">Total: $0</p>
+        <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
+    </div>
+
+    <script>
+        // Función para cargar los productos del carrito
+        function cargarCarrito() {
+            const cartItems = JSON.parse(localStorage.getItem("carrito")) || [];
+            const cartItemsContainer = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+            let total = 0;
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `<tr><td colspan="2" class="empty-cart">El carrito está vacío</td></tr>`;
+                cartTotal.style.display = 'none';
+                return;
+            }
+
+            // Mostrar productos en la tabla
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price}</td>
+                `;
+                cartItemsContainer.appendChild(row);
+                total += parseFloat(item.price);
+            });
+
+            cartTotal.innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Función de checkout (compra final)
+        function checkout() {
+            alert("Compra finalizada");
+            localStorage.removeItem("carrito");
+            window.location.reload();
+        }
+
+        // Cargar el carrito al abrir la página
+        window.onload = cargarCarrito;
+    </script>
+</body>
+</html>
