@@ -1,21 +1,15 @@
-/* Configuración general */
-*/* Asegúrate de incluir la clase shiny-text en tu CSS */
-/* Estilo para el texto con brillo negro */
+/* Estilo para el texto sin brillo */
 .shiny-text {
     color: black; /* Cambiar el color a negro */
-    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; /* Sombra de texto para un efecto de brillo suave */
+    text-shadow: none; /* Eliminar la sombra de texto */
     font-weight: bold;
     font-size: 70px; /* Mantener el tamaño grande */
-    animation: shimmer 1.5s infinite; /* Animación de brillo */
 }
 
-/* Animación de brillo */
+/* Animación de brillo eliminada */
 @keyframes shimmer {
-    0% { text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; }
-    50% { text-shadow: 0 0 10px #333, 0 0 20px #333, 0 0 30px #333; } /* Resplandor más fuerte */
-    100% { text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px #555; }
+    /* No es necesario mantener la animación si ya no la usas */
 }
-
 
 /* Estilos generales de la página */
 * {
@@ -27,6 +21,7 @@
 body {
     font-family: 'Inter', sans-serif;
     color: #333;
+    height: 100%; /* Asegura que el cuerpo ocupe todo el alto de la pantalla */
 }
 
 .main-container {
@@ -36,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 0;
 }
 
 /* Barra superior */
@@ -67,20 +62,30 @@ body {
     align-items: flex-start;
     max-width: 1440px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 0; /* Elimina el espacio superior */
     gap: 20px;
+    min-height: 100vh; /* Hace que el contenedor de la imagen ocupe toda la altura de la pantalla */
+    position: relative;
 }
 
+/* Modificación en la imagen promocional */
 .promo-image {
-    width: 60%;
-    max-width: 845px;
-    height: auto;
+    width: 250%; /* La imagen ocupa todo el ancho */
+    height: 250vh; /* La imagen cubre toda la altura de la pantalla */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin deformarse */
+    margin-left: 0; /* Elimina el margen izquierdo */
 }
 
+/* Ajuste del texto promocional */
 .promo-text {
     width: 40%;
     max-width: 420px;
     color: black;
+    position: absolute; /* Coloca el texto sobre la imagen */
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%); /* Centra verticalmente el texto */
+    z-index: 1; /* Asegura que el texto esté sobre la imagen */
 }
 
 .promo-text h2 {
