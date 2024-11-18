@@ -6,7 +6,7 @@
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos Generales */
+        
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -90,7 +90,7 @@
             </thead>
             
             <tbody id="cart-items">
-                <!-- Los productos se agregarán aquí -->
+                
             </tbody>
         </table>
 
@@ -111,7 +111,7 @@
                 return;
             }
     
-            // Mostrar productos en la tabla
+          
             cartItemsContainer.innerHTML = '';
             cartItems.forEach(item => {
                 const subtotal = item.price * item.quantity;
@@ -136,7 +136,6 @@
             window.location.reload();
         }
     
-        // Cargar el carrito al abrir la página
         window.onload = cargarCarrito;
     </script>
     
