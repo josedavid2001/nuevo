@@ -84,8 +84,11 @@
                 <tr>
                     <th>Producto</th>
                     <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
                 </tr>
             </thead>
+            
             <tbody id="cart-items">
                 <!-- Los productos se agregarán aquí -->
             </tbody>
@@ -96,43 +99,46 @@
     </div>
 
     <script>
-        // Función para cargar los productos del carrito
         function cargarCarrito() {
             const cartItems = JSON.parse(localStorage.getItem("carrito")) || [];
             const cartItemsContainer = document.getElementById("cart-items");
             const cartTotal = document.getElementById("cart-total");
             let total = 0;
-
+    
             if (cartItems.length === 0) {
-                cartItemsContainer.innerHTML = `<tr><td colspan="2" class="empty-cart">El carrito está vacío</td></tr>`;
+                cartItemsContainer.innerHTML = `<tr><td colspan="4" class="empty-cart">El carrito está vacío</td></tr>`;
                 cartTotal.style.display = 'none';
                 return;
             }
-
+    
             // Mostrar productos en la tabla
             cartItemsContainer.innerHTML = '';
             cartItems.forEach(item => {
+                const subtotal = item.price * item.quantity;
                 const row = document.createElement("tr");
                 row.innerHTML = `
                     <td>${item.name}</td>
                     <td>$${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${subtotal.toFixed(2)}</td>
                 `;
                 cartItemsContainer.appendChild(row);
-                total += parseFloat(item.price);
+                total += subtotal;
             });
-
+    
             cartTotal.innerText = `Total: $${total.toFixed(2)}`;
         }
-
-        // Función de checkout (compra final)
+    
+        // Función de checkout
         function checkout() {
             alert("Compra finalizada");
             localStorage.removeItem("carrito");
             window.location.reload();
         }
-
+    
         // Cargar el carrito al abrir la página
         window.onload = cargarCarrito;
     </script>
+    
 </body>
 </html>

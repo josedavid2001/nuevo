@@ -175,6 +175,7 @@
                 <img src="images/Caratula_Coleccion_Beauty_Creations_-_Cejas-2.webp" alt="Paleta de Sombras Nudex">
                 <h3>Paleta de Sombras Nudex</h3>
                 <div class="price">$19,900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
 
@@ -182,7 +183,9 @@
             <div class="product-card" data-product-id="2" data-product-name="Delineador con glitter Glitterally Perfect" data-product-price="15900">
                 <img src="images/image_b903173d-00ef-448d-844c-d8ae310f56f8.webp" alt="Delineador con glitter Glitterally Perfect">
                 <h3>Delineador con glitter Glitterally Perfect</h3>
+
                 <div class="price">$15,900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
 
@@ -191,6 +194,7 @@
                 <img src="images/image_cc4216c0-4fe0-4be0-9e74-09aae098b725.webp" alt="Paleta de Rostro Corpse Bride 'Why So Blue'">
                 <h3>Paleta de Rostro Corpse Bride "Why So Blue"</h3>
                 <div class="price">$23,900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
 
@@ -201,6 +205,7 @@
                 <h3>Balsamo de Labios My Little Pony Pony Dreams</h3>
                 
                 <div class="price">$35.900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
              <!-- Producto 2 -->
@@ -209,6 +214,7 @@
                 <h3>Balsamo Labial Balm n Cute</h3>
                 
                 <div class="price">$17.900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
              <!-- Producto 2 -->
@@ -217,6 +223,7 @@
                 <h3>Brillo de labios Lip Oil</h3>
                 
                 <div class="price">$15.000</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
              <!-- Producto 2 -->
@@ -225,6 +232,7 @@
                 <h3>Fijador de Maquillaje Flawless Setting Spray</h3>
                 
                 <div class="price">$18.000</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
              <!-- Producto 2 -->
@@ -233,6 +241,7 @@
                 <h3>Fijador de Maquillaje Tropical</h3>
                 
                 <div class="price">$44.900</div>
+                <input type="number" class="product-quantity" min="1" value="1" style="margin-top: 10px; width: 50px;">
                 <button class="buy-button" onclick="agregarAlCarrito(this)">Comprar</button>
             </div>
         </div>
@@ -249,25 +258,26 @@
             const productId = productCard.getAttribute("data-product-id");
             const productName = productCard.getAttribute("data-product-name");
             const productPrice = productCard.getAttribute("data-product-price");
-
-            // Crear un objeto de producto
+            const productQuantity = productCard.querySelector(".product-quantity").value;
+    
+            // Crear un objeto de producto con cantidad
             const product = {
                 id: productId,
                 name: productName,
-                price: parseFloat(productPrice)
+                price: parseFloat(productPrice),
+                quantity: parseInt(productQuantity, 10)
             };
-
+    
             // Obtener el carrito actual del localStorage o crear uno nuevo
             let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+    
             // Añadir el producto al carrito
             carrito.push(product);
-
+    
             // Guardar el carrito actualizado en el localStorage
             localStorage.setItem("carrito", JSON.stringify(carrito));
-
-            alert(`Producto agregado: ${productName}`);
+    
+            alert(`Producto agregado: ${productName} - Cantidad: ${productQuantity}`);
         }
     </script>
-</body>
-</html>
+    
